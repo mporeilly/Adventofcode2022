@@ -73,5 +73,10 @@ pub fn day01answers() {
             .unwrap(),
         max_calories
     );
-    //let 
+    // need total calories of the top 3 elves
+    // sort and then grab top 3
+    let mut sort = elve_total;
+    sort.sort_by(|a,b| b.cmp(a)); // this puts the largest to smallest
+
+    println!("Day 01 Part 02: The total calories of the top three elves is: {:?}", &sort[0..3].iter().fold(0, |accumulate, x| accumulate + x));
 }
