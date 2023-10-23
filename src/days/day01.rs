@@ -10,8 +10,8 @@ static NEWLINE: u8 = 10;
 // }
 
 pub fn day01answers() {
-    let filedata = std::fs::read("data/day01.txt").unwrap();
-    // need to have the carraige return and newline character in acii
+    let filedata = std::fs::read("day01.txt").unwrap(); // started to fail had to remove "data/day01.txt" to "day01.txt" back to working
+                                                        // need to have the carraige return and newline character in acii
     let mut staging_vector = Vec::new();
     // need a placeholder vector to hold the numbers
     let mut elve_calories: Vec<i32> = Vec::new();
@@ -76,7 +76,10 @@ pub fn day01answers() {
     // need total calories of the top 3 elves
     // sort and then grab top 3
     let mut sort = elve_total;
-    sort.sort_by(|a,b| b.cmp(a)); // this puts the largest to smallest
+    sort.sort_by(|a, b| b.cmp(a)); // this puts the largest to smallest
 
-    println!("Day 01 Part 02: The total calories of the top three elves is: {:?}", &sort[0..3].iter().fold(0, |accumulate, x| accumulate + x));
+    println!(
+        "Day 01 Part 02: The total calories of the top three elves is: {:?}",
+        &sort[0..3].iter().fold(0, |accumulate, x| accumulate + x)
+    );
 }
