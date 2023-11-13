@@ -11,6 +11,8 @@ pub fn main() !void {
     var bw = std.io.bufferedWriter(stdout_file);
     const stdout = bw.writer();
 
+    var filedata = std.io.
+
     try stdout.print("Run `zig build test` to run the tests.\n", .{});
 
     try bw.flush(); // don't forget to flush!

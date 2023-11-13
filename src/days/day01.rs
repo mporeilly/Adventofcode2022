@@ -10,7 +10,7 @@ static NEWLINE: u8 = 10;
 // }
 
 pub fn day01answers() {
-    let filedata = std::fs::read("day01.txt").unwrap(); // started to fail had to remove "data/day01.txt" to "day01.txt" back to working
+    let filedata = std::fs::read("data/day01.txt").unwrap(); // started to fail had to remove "data/day01.txt" to "day01.txt" back to working
                                                         // need to have the carraige return and newline character in acii
     let mut staging_vector = Vec::new();
     // need a placeholder vector to hold the numbers

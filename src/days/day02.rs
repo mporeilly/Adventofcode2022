@@ -4,7 +4,7 @@ use std;
 static NEWLINE: u8 = 10;
 static SPACE: u8 = 32;
 pub fn day02answers() {
-    let mut filedata = std::fs::read("day02.txt").unwrap();
+    let mut filedata = std::fs::read("data/day02.txt").unwrap();
 
     filedata.retain(|&x| (x != NEWLINE) ); // remove unneeded symbols
     filedata.retain(|&x| (x != SPACE) ); // remove unneeded symbols
@@ -20,7 +20,7 @@ pub fn day02answers() {
     
     for i in 0..filedata.len()/2{
 
-        filedata[i]
+        
 
 
     }
