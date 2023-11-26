@@ -24,55 +24,58 @@ pub fn day02answers() {
         second_column.push(filedata[i + 1] as char);
         // 1 for Rock, 2 for Paper, and 3 for Scissors
         points_collected = points_collected
-            + match filedata[i] {
+            + match filedata[i + 1] {
                 // Unique style but I enjoy the simplicity
-                b'A' => 1,
-                b'B' => 2,
-                b'C' => 3,
+                b'X' => 1,
+                b'Y' => 2,
+                b'Z' => 3,
                 _ => panic!(
                     "Unknown value: only able to recognize A, B or C within the first column"
                 ),
             };
         // A for Rock, B for Paper, and C for Scissors - first column
-        // X for Rock, Y for Paper, and Z for Scissors - second column
+        // X for Rock, Y for Paper, and Z for Scissors - second column (what I played)
 
         // 0 if you lost, 3 if the round was a draw, and 6 if you won
 
-        if filedata[i] == filedata[i + 1] {
+        // use ascii to allow the values to be compared  based on an offset A = 65 (rock) X = 88 (rock)
+        if filedata[i] + (b'X' - b'A') == filedata[i + 1] {
             // tie
             points_collected = points_collected + 3;
         }
         // rock
-        if filedata[i] == b'A' && filedata[i + 1] == b'Y' {
-            // rock vs paper = loss
-            points_collected = points_collected + 0;
-        }
-        if filedata[i] == b'A' && filedata[i + 1] == b'Z' {
-            // rock vs sicssors = win
+        if filedata[i + 1] == b'Y' && filedata[i] == b'A' {
+            // p vs r = win
             points_collected = points_collected + 6;
+        }
+        if filedata[i + 1] == b'Z' && filedata[i] == b'A' {
+            // s vs r  = loss
+            points_collected = points_collected + 0;
         }
         // paper
-        if filedata[i] == b'B' && filedata[i + 1] == b'Z' {
-            // paper vs scissors = loss
-            points_collected = points_collected + 0;
-        }
-        if filedata[i] == b'B' && filedata[i + 1] == b'X' {
-            // paper vs rock = win
+        if filedata[i + 1] == b'Z' && filedata[i] == b'B' {
+            // s vs p = win
             points_collected = points_collected + 6;
+        }
+        if filedata[i + 1] == b'X' && filedata[i] == b'B' {
+            // r vs p = loss
+            points_collected = points_collected + 0;
         }
         // scissors
-        if filedata[i] == b'C' && filedata[i + 1] == b'X' {
-            // scissors vs rock = loss
-            points_collected = points_collected + 0;
-        }
-        if filedata[i] == b'C' && filedata[i + 1] == b'Y' {
-            // scissors vs paper = win
+        if filedata[i + 1] == b'X' && filedata[i] == b'C' {
+            // r vs s = win
             points_collected = points_collected + 6;
+        }
+        if filedata[i + 1] == b'Y' && filedata[i] == b'C' {
+            // p vs s = loss
+            points_collected = points_collected + 0;
         }
 
         i += 2;
         //print!("{:?}",i);
     }
 
-    println!("Day 02 Part 01: {:?}", points_collected);
+    //X means you need to lose, Y means you need to end the round in a draw, and Z means you need to win
+
+    println!("Day 02 Part 01: If everything goes to plan total points: {:?}", points_collected);
 }
