@@ -78,4 +78,5 @@ pub fn day02answers() {
     //X means you need to lose, Y means you need to end the round in a draw, and Z means you need to win
 
     println!("Day 02 Part 01: If everything goes to plan total points: {:?}", points_collected);
+    println!("Day 02 Part 02: If second column is the result: {:?}")
 }

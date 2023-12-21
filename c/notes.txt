@@ -1,0 +1,9 @@
+Create a "CMakeLists.txt" file
+
+Create a "build" folder
+
+call "cmake ../" within the build to generate the make file
+call "make" to compile the program
+run "./main" to run
+
+use valgrind to see if any leaks happen within the program

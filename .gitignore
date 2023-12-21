@@ -2,4 +2,5 @@
 Cargo.lock
 /zig/zig-out
 /zig/zig-cache
+/c/build
 
